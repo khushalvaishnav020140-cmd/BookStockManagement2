@@ -247,7 +247,8 @@ Establishes a connection between the Java application and the MySQL database.
 
 ## 3. Database Relationship Overview
 
-ER Diagram.png
+![ER Diagram](images/ER%20Diagram.png)
+
 
 **Note:** This is a conceptual overview. Update the field names and relationships to match your actual SQL table definitions.
 
