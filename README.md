@@ -247,40 +247,7 @@ Establishes a connection between the Java application and the MySQL database.
 
 ## 3. Database Relationship Overview
 
-The database uses separate tables for categories, books, and circulation records.
-
-A typical relationship design is:
-
-```text
-+------------------+
-|    categories    |
-+------------------+
-| category_id (PK) |
-| category_name    |
-+------------------+
-         |
-         | One category can contain
-         | multiple books
-         v
-+------------------+
-|      books       |
-+------------------+
-| book_id (PK)     |
-| title            |
-| category_id (FK) |
-| quantity         |
-+------------------+
-         |
-         | Book reference
-         v
-+------------------+
-|   circulation    |
-+------------------+
-| circulation_id   |
-| book_id (FK)     |
-| issue/return data|
-+------------------+
-```
+ER Diagram.png
 
 **Note:** This is a conceptual overview. Update the field names and relationships to match your actual SQL table definitions.
 
