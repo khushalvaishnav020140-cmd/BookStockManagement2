@@ -88,6 +88,12 @@ The actual operations available depend on the implemented application. The main 
 
 > Note: Add separate administrator or staff roles here only if authentication and role-based access are implemented in your application.
 
+## 📄 Software Requirements Specification (SRS)
+
+The SRS document describes the functional requirements, non-functional requirements, system architecture, database requirements, and testing requirements of the Book Stock Management System.
+
+📥 [Download SRS Document](SRS.docx)
+
 ## 2. Software Requirements Specification (SRS)
 
 ### Functional Requirements
