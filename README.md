@@ -257,13 +257,13 @@ Establishes a connection between the Java application and the MySQL database.
 
 Add your actual UML diagram below.
 
-![UML Class Diagram](docs/images/uml-class-diagram.png)
+![UML Class Diagram](UML.png)
 
 *Replace this image path with the actual UML diagram uploaded to the repository.*
 
 ## 5. System Architecture Diagram
 
-![System Architecture Diagram](docs/images/system-architecture.png)
+![System Architecture Diagram](ManagementArchitecture.png)
 
 *Replace this image path with your actual architecture diagram.*
 
@@ -336,31 +336,31 @@ The web interface is designed to provide access to the main book stock managemen
 
 The dashboard provides an overview of the system.
 
-![Dashboard Screenshot](docs/images/dashboard.png)
+![Dashboard Screenshot](dashboard.png)
 
 ### Book Management
 
 The book management interface is used to view and manage book information.
 
-![Book Management Screenshot](docs/images/books.png)
+![Book Management Screenshot](books.png)
 
 ### Category Management
 
 The category section is used to organize books by category.
 
-![Category Management Screenshot](docs/images/categories.png)
+![Category Management Screenshot](categories.png)
 
 ### Stock Management
 
 The stock section displays book quantities and related stock information.
 
-![Stock Management Screenshot](docs/images/stock.png)
+![Stock Management Screenshot](bookstock.png)
 
 ### Issue and Return Management
 
 The circulation section is used to maintain book issue and return records.
 
-![Circulation Screenshot](docs/images/circulation.png)
+![Circulation Screenshot](circulation.png)
 
 **Important:** Upload the actual screenshots before using these image paths. Remove any screenshot section for a page that your project does not contain.
 
