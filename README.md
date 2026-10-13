@@ -208,7 +208,9 @@ The database connection is handled by the Java database connection class located
 # Week 3: UML Design and System Modeling
 
 ## 1. Use Case Overview
+## Project Screenshot
 
+![](ERDiagram.png)
 The main use cases of the Book Stock Management System are:
 
 * View dashboard.
