@@ -19,7 +19,7 @@ A Java-based web application designed to manage books, categories, stock availab
 
 | **Name** | **Enrollment** | **Email** | **Mobile** |
 | -------- | -------------- | --------- | ---------- |
-| Khushal Vaishnav | 24EARAD080| Khushalvaishnav020140@gmail.com | 81122 10487 |
+| Khushal Vaishnav | 24E1ARADM30P080| Khushalvaishnav020140@gmail.com | 81122 10487 |
 
 ## 3. Research Area and Specialization
 
