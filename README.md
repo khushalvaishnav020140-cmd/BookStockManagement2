@@ -12,7 +12,7 @@ A Java-based web application designed to manage books, categories, stock availab
 
 ## 2. Project Guide
 
-* **Project Guide:** [Add Project Guide Name]
+* **Project Guide:** [khushal vaishnav]
 * **Project Type:** Java Web Application
 * **Development Environment:** Eclipse IDE
 
