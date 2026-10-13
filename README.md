@@ -251,21 +251,21 @@ Establishes a connection between the Java application and the MySQL database.
 ![](ERDiagram.png)
 
 
-**Note:** This is a conceptual overview. Update the field names and relationships to match your actual SQL table definitions.
+
 
 ## 4. UML Diagram
 
-Add your actual UML diagram below.
+
 
 ![UML Class Diagram](UML.png)
 
-*Replace this image path with the actual UML diagram uploaded to the repository.*
+
 
 ## 5. System Architecture Diagram
 
 ![System Architecture Diagram](ManagementArchitecture.png)
 
-*Replace this image path with your actual architecture diagram.*
+
 
 ---
 
