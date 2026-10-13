@@ -210,7 +210,6 @@ The database connection is handled by the Java database connection class located
 ## 1. Use Case Overview
 ## Project Screenshot
 
-![](ERDiagram.png)
 The main use cases of the Book Stock Management System are:
 
 * View dashboard.
@@ -249,7 +248,7 @@ Establishes a connection between the Java application and the MySQL database.
 
 ## 3. Database Relationship Overview
 
-![ER Diagram](images/ER%20Diagram.png)
+![](ERDiagram.png)
 
 
 **Note:** This is a conceptual overview. Update the field names and relationships to match your actual SQL table definitions.
