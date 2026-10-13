@@ -22,3 +22,6 @@ Database Name: book_stock_db
 
 ## Author
 Khushal
+## Project Screenshot
+
+![Book Stock Management Dashboard](dashboard.png)
