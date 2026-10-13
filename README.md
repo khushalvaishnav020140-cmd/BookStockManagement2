@@ -12,7 +12,7 @@ A Java-based web application designed to manage books, categories, stock availab
 
 ## 2. Project Guide
 
-* **Project Guide:** [khushal vaishnav]
+* **Project Guide:** [Er. Ram Babu Buri]
 * **Project Type:** Java Web Application
 * **Development Environment:** Eclipse IDE
 
@@ -29,6 +29,11 @@ The project focuses on developing a web-based system for maintaining book invent
 * Software Engineering
 * Inventory and Stock Management
 
+### Team Members
+
+| **Name** | **Enrollment** | **Email** | **Mobile** |
+| -------- | -------------- | --------- | ---------- |
+| Khushal Vaishnav | [24EARAD080] | [Khushalvaishnav020140@gmail.com] | [81122 10487] |
 ## 4. Project Details
 
 | Field                 | Details                      |
