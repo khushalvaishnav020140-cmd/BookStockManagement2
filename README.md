@@ -90,7 +90,7 @@ The actual operations available depend on the implemented application. The main 
 
 ## 2. Software Requirements Specification (SRS)
 
-[📖 Click Here to View SRS PDF](./SRS.pdf)
+[View SRS PDF](./SRS.pdf)
 
 ### Functional Requirements
 
