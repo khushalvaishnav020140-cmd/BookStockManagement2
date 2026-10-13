@@ -90,9 +90,9 @@ The actual operations available depend on the implemented application. The main 
 
 ## 📄 Software Requirements Specification (SRS)
 
-The SRS document describes the functional requirements, non-functional requirements, system architecture, database requirements, and testing requirements of the Book Stock Management System.
+The complete Software Requirements Specification is available below:
 
-📥 [Download SRS Document](SRS.docx)
+➡️ [View SRS Document](SRS.md)
 
 ## 2. Software Requirements Specification (SRS)
 
