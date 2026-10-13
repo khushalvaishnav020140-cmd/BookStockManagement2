@@ -818,7 +818,7 @@ GitHub Repository: [BookStockManagement2](https://github.com/khushalvaishnav0201
 
 ## Author
 
-**Name:** [Add Your Name]
+**Name:** [khushal vaishnav]
 
 ## License
 
