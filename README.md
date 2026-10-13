@@ -88,9 +88,9 @@ The actual operations available depend on the implemented application. The main 
 
 > Note: Add separate administrator or staff roles here only if authentication and role-based access are implemented in your application.
 
-## 📄 Software Requirements Specification
+## 📄 Software Requirements Specification (SRS)
 
-[📖 View SRS PDF](./SRS.pdf)
+📖 View SRS PDF
 
 ## 2. Software Requirements Specification (SRS)
 
