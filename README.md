@@ -686,177 +686,43 @@ Possible future improvements include:
 
 ---
 
-# Week 10: Final System Evaluation and Project Deliverables
+## Week 10: Final System Evaluation, Project Deliverables & Submission Preparation
 
-## 1. Final Project Overview
+### Project Deliverables & Artifacts
 
-The Book Stock Management System is designed to provide a structured way to maintain book inventory and circulation records.
+| **Deliverable** | **Resource** | **Status** |
+|---|---|---|
+| Project Repository | [Book Stock Management System – GitHub](https://github.com/khushalvaishnav020140-cmd/BookStockManagement2) | Available |
+| Project Report | [SRS Document (DOCX)](SRS.docx) | Prepared* |
+| Software Requirements Specification | [SRS (PDF)](SRS.pdf) | Prepared* |
+| ER Diagram | [View ER Diagram](ER%20Diagram.png) | Available |
+| Dashboard Screenshot | [View Dashboard](dashboard.png) | Available |
+| Book Stock Screenshot | [View Book Stock](book%20stock.png) | Available |
+| Add Book Screenshot | [View Add Book](addbook.png) | Available |
+| Circulation Screenshot | [View Circulation](circulation.png) | Available |
+| Weekly Project Reports | [Project Reports on Google Drive](https://drive.google.com/drive/folders/1Envj5Ikl_qeaFq9owawc38kX8nWXffBi?usp=sharing) | Link Provided |
+| Project Demonstration | Application demonstration of book management and circulation features | To Be Verified |
 
-The application uses Java, JSP, Servlets, JDBC, and MySQL to manage data through a web interface. Its modular structure separates database connectivity, request handling, and presentation.
-
-The system aims to reduce manual work and improve the organization of book stock information.
-
-## 2. Final Deliverables
-
-| Deliverable          | Description                                               |
-| -------------------- | --------------------------------------------------------- |
-| Source Code          | Java classes, Servlets, JSP pages, and related resources  |
-| Database             | MySQL database schema and required setup instructions     |
-| README               | Project overview, setup guide, modules, and documentation |
-| Screenshots          | Actual screenshots of the running application             |
-| UML Diagram          | UML diagram matching the implemented design               |
-| Architecture Diagram | Diagram of the application architecture                   |
-| Testing Report       | Actual test cases and recorded results                    |
-| Project Report       | [Add report file if available]                            |
-| Presentation         | [Add presentation file if available]                      |
-| Demonstration Video  | [Add video link if available]                             |
-
-## 3. Future Enhancements
-
-The application can be extended with additional features such as:
-
-* Secure login and authorization.
-* Student or member management.
-* Due-date tracking.
-* Fine calculation for overdue books.
-* Low-stock alerts.
-* Detailed inventory reports.
-* Report export to PDF or Excel.
-* Improved dashboard analytics.
-* Automated testing.
-
-These are possible enhancements and should not be considered implemented unless they are present in the current codebase.
-
-## 4. Conclusion
-
-The Book Stock Management System demonstrates the use of Java web technologies and relational database management for maintaining book inventory.
-
-By using JSP, Servlets, JDBC, and MySQL, the project provides a foundation for managing book records, categories, stock, and circulation information. The project also demonstrates the importance of modular application design, database connectivity, data validation, and testing.
-
-The system can be enhanced further with additional security, reporting, and library management features.
+*Confirm that the documents are complete and up to date before marking them as finalized.*
 
 ---
 
-# Installation and Setup
+## Quick Start
 
-## Prerequisites
+### Prerequisites
 
-Install the following software:
+Ensure the following software is installed:
 
-* Java Development Kit (JDK)
-* Eclipse IDE for Enterprise Java and Web Developers, or an equivalent Eclipse setup
-* Apache Tomcat 10.1
-* MySQL Server
-* MySQL Connector/J
+- Java Development Kit (JDK)
+- Eclipse IDE
+- Apache Tomcat 10.1
+- MySQL Server
+- MySQL JDBC Driver
 
-## Step 1: Clone the Repository
+### Setup Instructions
+
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/khushalvaishnav020140-cmd/BookStockManagement2.git
-```
-
-Open the project in Eclipse and configure it as a web application if necessary.
-
-## Step 2: Create the Database
-
-Create the database in MySQL:
-
-```sql
-CREATE DATABASE book_stock_db;
-```
-
-Create the `categories`, `books`, and `circulation` tables using the actual SQL schema for your project.
-
-> Add a `database/schema.sql` file to the repository if you want users to initialize the database easily. Do not include private credentials in this file.
-
-## Step 3: Configure Database Connectivity
-
-Configure the database connection in `DBConnection.java`.
-
-The application uses:
-
-* Database: `book_stock_db`
-* Default database user: `root`, unless configured otherwise
-* Password: supplied through the `DB_PASSWORD` environment variable if your connection class is configured to read it
-
-Do not upload your real MySQL password to GitHub.
-
-## Step 4: Configure Tomcat
-
-1. Open the project in Eclipse.
-2. Configure Apache Tomcat 10.1 as the application server.
-3. Ensure the MySQL Connector/J driver is available to the application.
-4. Confirm that the project uses the Jakarta Servlet API compatible with Tomcat 10.1.
-5. Add the project to the Tomcat server.
-
-## Step 5: Run the Application
-
-1. Start MySQL Server.
-2. Start Apache Tomcat from Eclipse.
-3. Run the project on the server.
-4. Open the application's local URL in a browser.
-
-The exact URL depends on the configured context path and welcome page.
-
-## Step 6: Verify the Application
-
-Confirm that:
-
-* The dashboard opens.
-* Book records can be viewed.
-* Book and category operations work.
-* Stock information is displayed.
-* Issue and return operations work, if implemented.
-* Data is stored in MySQL.
-
----
-
-## 📅 Weekly Project Reports
-
-The following weekly reports document the progress, development activities, challenges, and planned improvements for the Book Stock Management System.
-
-### Week 11 – Documentation and Interface Improvements
-
-**Work Completed:**
-- Organized project documentation and screenshots.
-- Updated the README file and project diagrams.
-- Reviewed the Software Requirements Specification (SRS).
-- Organized project files for final presentation and submission.
-
-**Problems Faced:**
-Ensuring consistency between the documentation, diagrams, screenshots, and implemented features required careful review.
-
-**Plan for Next Week:**
-Perform final integration testing, verify deployment configuration, review the GitHub repository, and prepare for the final project demonstration.
-
-### Week 12 – Final Testing and Project Submission
-
-**Work Completed:**
-- Performed final testing of the main application features.
-- Verified application deployment and database connectivity.
-- Reviewed the main book management and issue/return workflows.
-- Organized project documentation, screenshots, and the GitHub README.
-- Prepared the project for final demonstration and submission.
-
-**Problems Faced:**
-Final verification required checking application navigation, database connectivity, deployment settings, and consistency between the implemented features and documentation.
-
-**Plan for Next Week:**
-Review feedback from the project mentor, address any remaining issues, and prepare for the final project presentation and viva.
-
-### 📂 Project Documentation and Reports
-
-- [Google Drive – Project Reports and Documents](https://drive.google.com/drive/folders/1Envj5Ikl_qeaFq9owawc38kX8nWXffBi?usp=sharing)
-- [GitHub Repository – Book Stock Management System](https://github.com/khushalvaishnav020140-cmd/BookStockManagement2)
-
-# Repository
-
-GitHub Repository: [BookStockManagement2](https://github.com/khushalvaishnav020140-cmd/BookStockManagement2)
-
-## Author
-
-**Name:** [khushal vaishnav]
-
-## License
-
-[Add a license if one has been selected for this project.]
+cd BookStockManagement2
