@@ -811,6 +811,44 @@ Confirm that:
 
 ---
 
+## 📅 Weekly Project Reports
+
+The following weekly reports document the progress, development activities, challenges, and planned improvements for the Book Stock Management System.
+
+### Week 11 – Documentation and Interface Improvements
+
+**Work Completed:**
+- Organized project documentation and screenshots.
+- Updated the README file and project diagrams.
+- Reviewed the Software Requirements Specification (SRS).
+- Organized project files for final presentation and submission.
+
+**Problems Faced:**
+Ensuring consistency between the documentation, diagrams, screenshots, and implemented features required careful review.
+
+**Plan for Next Week:**
+Perform final integration testing, verify deployment configuration, review the GitHub repository, and prepare for the final project demonstration.
+
+### Week 12 – Final Testing and Project Submission
+
+**Work Completed:**
+- Performed final testing of the main application features.
+- Verified application deployment and database connectivity.
+- Reviewed the main book management and issue/return workflows.
+- Organized project documentation, screenshots, and the GitHub README.
+- Prepared the project for final demonstration and submission.
+
+**Problems Faced:**
+Final verification required checking application navigation, database connectivity, deployment settings, and consistency between the implemented features and documentation.
+
+**Plan for Next Week:**
+Review feedback from the project mentor, address any remaining issues, and prepare for the final project presentation and viva.
+
+### 📂 Project Documentation and Reports
+
+- [Google Drive – Project Reports and Documents](https://drive.google.com/drive/folders/1Envj5Ikl_qeaFq9owawc38kX8nWXffBi?usp=sharing)
+- [GitHub Repository – Book Stock Management System](https://github.com/khushalvaishnav020140-cmd/BookStockManagement2)
+
 # Repository
 
 GitHub Repository: [BookStockManagement2](https://github.com/khushalvaishnav020140-cmd/BookStockManagement2)
