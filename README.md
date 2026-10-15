@@ -680,49 +680,42 @@ Possible future improvements include:
 * Low-stock notifications.
 * Exporting inventory reports.
 * Improved input validation.
-* Automated unit and integration tests.
 
-*Only list a feature as a limitation if it is actually missing from your current implementation.*
-
----
-
-## Week 10: Final System Evaluation, Project Deliverables & Submission Preparation
+## Week 10: Final System Evaluation, Project Deliverables & Submission
 
 ### Project Deliverables & Artifacts
 
 | **Deliverable** | **Resource** | **Status** |
 |---|---|---|
-| Project Repository | [Book Stock Management System – GitHub](https://github.com/khushalvaishnav020140-cmd/BookStockManagement2) | Available |
-| Project Report | [SRS Document (DOCX)](SRS.docx) | Prepared* |
-| Software Requirements Specification | [SRS (PDF)](SRS.pdf) | Prepared* |
-| ER Diagram | [View ER Diagram](ER%20Diagram.png) | Available |
-| Dashboard Screenshot | [View Dashboard](dashboard.png) | Available |
-| Book Stock Screenshot | [View Book Stock](book%20stock.png) | Available |
-| Add Book Screenshot | [View Add Book](addbook.png) | Available |
-| Circulation Screenshot | [View Circulation](circulation.png) | Available |
-| Weekly Project Reports | [Project Reports on Google Drive](https://drive.google.com/drive/folders/1Envj5Ikl_qeaFq9owawc38kX8nWXffBi?usp=sharing) | Link Provided |
-| Project Demonstration | Application demonstration of book management and circulation features | To Be Verified |
-
-*Confirm that the documents are complete and up to date before marking them as finalized.*
+| Project Report | [Project Report (DOCX)](PASTE_REPORT_LINK_HERE) | Prepared |
+| Presentation | [Project Presentation (PPT)](https://docs.google.com/presentation/d/1HcQnxdcVMsPKY4GoItjdBOhoBAQoKi9q/edit?usp=drive_link&ouid=103032732030140377386&rtpof=true&sd=true) | Prepared |
+| IEEE Research Paper | [IEEE Paper (PDF)](https://drive.google.com/file/d/1aQHeVArCpuhDuf8v4Nl3bhC9oW13rQpY/view?usp=drive_link) | Prepared |
+| Software Requirements Specification (SRS) | [SRS Document (PDF)](https://drive.google.com/file/d/1E5ufHSBa13XI1fYJneNj1OPGUuzS8K9_/view?usp=drive_link) | Prepared |
 
 ---
 
-## Quick Start
+## Final System Evaluation
 
-### Prerequisites
+The Book Stock Management System was reviewed with a focus on its core functionality, project documentation, and final submission preparation.
 
-Ensure the following software is installed:
+Key areas of evaluation include:
 
-- Java Development Kit (JDK)
-- Eclipse IDE
-- Apache Tomcat 10.1
-- MySQL Server
-- MySQL JDBC Driver
+- Book inventory and stock management.
+- Book addition, editing, and searching.
+- Book category management.
+- Book issue and return operations.
+- Database connectivity and application configuration.
+- Consistency between project implementation and documentation.
 
-### Setup Instructions
+## Scope & Current Limitations
 
-**1. Clone the repository**
+- The system focuses on book inventory and circulation management.
+- Application functionality depends on correct database configuration and connectivity.
+- Final deployment and end-to-end testing should be verified before submission.
+- Additional features can be considered for future development.
 
-```bash
-git clone https://github.com/khushalvaishnav020140-cmd/BookStockManagement2.git
-cd BookStockManagement2
+## Project Repository
+
+[Book Stock Management System – GitHub](https://github.com/khushalvaishnav020140-cmd/BookStockManagement2)
+* Automated unit and integration tests.
+
