@@ -342,25 +342,25 @@ The dashboard provides an overview of the system.
 
 The book management interface is used to view and manage book information.
 
-![Book Management Screenshot](books.png)
+![Book Management Screenshot](Libadd.png)
 
 ### Category Management
 
 The category section is used to organize books by category.
 
-![Category Management Screenshot](categories.png)
+![Category Management Screenshot](Libcategories.png)
 
 ### Stock Management
 
 The stock section displays book quantities and related stock information.
 
-![Stock Management Screenshot](bookstock.png)
+![Stock Management Screenshot](Labnewbook.png)
 
 ### Issue and Return Management
 
 The circulation section is used to maintain book issue and return records.
 
-![Circulation Screenshot](circulation.png)
+![Circulation Screenshot](Libcirculation.png)
 
 **Important:** Upload the actual screenshots before using these image paths. Remove any screenshot section for a page that your project does not contain.
 
