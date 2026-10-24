@@ -687,7 +687,8 @@ Possible future improvements include:
 
 | **Deliverable** | **Resource** | **Status** |
 |---|---|---|
-[View Project Report (PDF)](BookStockManagement_Project_Report.pdf)
+
+| Project Report | [View Project Report (PDF)](BookStockManagement_Project_Report.pdf) | Prepared |
 | Presentation | [Project Presentation (PPT)](https://docs.google.com/presentation/d/1HcQnxdcVMsPKY4GoItjdBOhoBAQoKi9q/edit?usp=drive_link&ouid=103032732030140377386&rtpof=true&sd=true) | Prepared |
 | IEEE Research Paper | [IEEE Paper (PDF)](https://drive.google.com/file/d/1aQHeVArCpuhDuf8v4Nl3bhC9oW13rQpY/view?usp=drive_link) | Prepared |
 | Software Requirements Specification (SRS) | [SRS Document (PDF)](https://drive.google.com/file/d/1E5ufHSBa13XI1fYJneNj1OPGUuzS8K9_/view?usp=drive_link) | Prepared |
