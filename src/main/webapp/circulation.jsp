@@ -267,7 +267,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
 
-        <h2>AutoLib<span>Sys</span></h2>
+        <h2>Auto<span>LibSys</span></h2>
 
         <a href="<%= contextPath %>/dashboard">
             Dashboard
