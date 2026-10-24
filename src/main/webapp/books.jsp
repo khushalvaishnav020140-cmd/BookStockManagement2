@@ -54,7 +54,7 @@
         }
 
         .logo {
-            text-align: center;
+            text-align: left;
             font-size: 25px;
             font-weight: bold;
             margin-bottom: 40px;
