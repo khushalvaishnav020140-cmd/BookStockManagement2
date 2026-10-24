@@ -10,110 +10,141 @@
         (List<Map<String, Object>>) request.getAttribute("books");
 
     String search = (String) request.getAttribute("search");
-    String selectedCategory =
-        (String) request.getAttribute("selectedCategory");
-
+    String selectedCategory = (String) request.getAttribute("selectedCategory");
     String searchError = (String) request.getAttribute("searchError");
     String updated = request.getParameter("updated");
 
-    if (search == null) {
-        search = "";
-    }
+    if (search == null) search = "";
+    if (selectedCategory == null) selectedCategory = "";
 
-    if (selectedCategory == null) {
-        selectedCategory = "";
-    }
+    String contextPath = request.getContextPath();
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book Stock Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Stock Management | AutoLibSys</title>
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
+            background: #f4f7fb;
+            color: #263445;
         }
 
+        /* Sidebar */
         .sidebar {
-            width: 230px;
-            height: 100vh;
-            background: #243447;
+            width: 240px;
+            min-height: 100vh;
+            background: #153b70;
             color: white;
             position: fixed;
             top: 0;
             left: 0;
-            padding: 25px 15px;
+            padding: 28px 18px;
         }
 
-        .sidebar h2 {
+        .logo {
             text-align: center;
-            margin-bottom: 30px;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .logo span {
+            color: #71c6ff;
         }
 
         .sidebar a {
             display: block;
-            padding: 13px 15px;
-            color: white;
+            padding: 14px 15px;
+            color: #e5edfa;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 7px;
             margin-bottom: 8px;
+            font-size: 15px;
+            transition: background 0.2s ease;
         }
 
         .sidebar a:hover,
         .sidebar a.active {
-            background: #3498db;
+            background: #285792;
         }
 
+        /* Main Content */
         .main {
-            margin-left: 230px;
+            margin-left: 240px;
             padding: 30px;
+            min-width: 0;
         }
 
         .page-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
+            flex-wrap: wrap;
             margin-bottom: 25px;
         }
 
         .page-header h1 {
-            margin: 0;
-            color: #243447;
+            color: #18385e;
+            font-size: 28px;
+            margin-bottom: 7px;
         }
 
+        .subtitle {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Add Button */
         .add-button {
-            background: #28a745;
+            display: inline-block;
+            background: #285792;
             color: white;
-            padding: 11px 16px;
+            padding: 11px 17px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: bold;
             white-space: nowrap;
         }
 
+        .add-button:hover,
+        .search-button:hover,
+        .edit-button:hover {
+            background: #1d456f;
+        }
+
+        /* Cards */
         .search-panel,
         .table-container {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
         }
 
-        .search-panel h3,
-        .table-container h3 {
-            margin-top: 0;
-            color: #243447;
+        .section-heading {
+            color: #18385e;
+            font-size: 18px;
+            margin-bottom: 17px;
         }
 
+        /* Search Form */
         .search-form {
             display: flex;
             flex-wrap: wrap;
@@ -123,59 +154,74 @@
 
         .search-form input,
         .search-form select {
-            padding: 11px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            flex: 1 1 210px;
+            min-width: 0;
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid #d5deea;
+            border-radius: 7px;
+            background: white;
+            color: #263445;
             font-size: 14px;
-            min-width: 180px;
-            flex: 1;
+            outline: none;
+        }
+
+        .search-form input:focus,
+        .search-form select:focus {
+            border-color: #5288c5;
+            box-shadow: 0 0 0 3px rgba(82, 136, 197, 0.13);
         }
 
         .search-button,
+        .clear-button,
         .edit-button {
-            padding: 9px 14px;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
             display: inline-block;
+            border: none;
+            border-radius: 7px;
+            padding: 11px 17px;
+            font-size: 14px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
         }
 
         .search-button {
-            padding: 11px 20px;
-        }
-
-        .search-button:hover,
-        .edit-button:hover {
-            background: #217dbb;
+            background: #285792;
+            color: white;
         }
 
         .clear-button {
-            padding: 11px 20px;
-            background: #6c757d;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
+            background: #e9eef5;
+            color: #35516f;
+        }
+
+        .clear-button:hover {
+            background: #dce5f0;
+        }
+
+        /* Messages */
+        .success-message,
+        .error-message {
+            padding: 13px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
         }
 
         .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 13px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+            background: #e4f6ea;
+            color: #216e3a;
+            border: 1px solid #c7ead2;
         }
 
         .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 13px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+            background: #fff0f0;
+            color: #a12b35;
+            border: 1px solid #f2cdcf;
         }
 
+        /* Inventory Table */
         .table-container {
             overflow-x: auto;
         }
@@ -188,49 +234,98 @@
 
         th,
         td {
-            padding: 12px 10px;
+            padding: 15px 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #edf0f5;
+            vertical-align: middle;
+            font-size: 13px;
         }
 
         th {
-            background: #243447;
-            color: white;
+            background: #eef4fb;
+            color: #35516f;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
-        tr:hover {
-            background: #f7f9fb;
+        td {
+            color: #526174;
+        }
+
+        tbody tr:hover {
+            background: #f8fafd;
+        }
+
+        /* Stock Status */
+        .available,
+        .unavailable {
+            display: inline-block;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
         .available {
-            color: #218838;
-            font-weight: bold;
+            color: #237846;
+            background: #e6f6eb;
         }
 
         .unavailable {
-            color: #dc3545;
-            font-weight: bold;
+            color: #b42332;
+            background: #fff0f0;
+        }
+
+        /* Edit Button */
+        .edit-button {
+            background: #285792;
+            color: white;
+            padding: 8px 12px;
         }
 
         .empty-message {
             text-align: center;
-            padding: 25px;
-            color: #666;
+            padding: 28px 15px;
+            color: #718096;
+            font-size: 14px;
         }
 
-        @media (max-width: 800px) {
+        /* Responsive Design */
+        @media (max-width: 700px) {
             .sidebar {
-                width: 180px;
+                position: relative;
+                width: 100%;
+                min-height: auto;
+                padding: 20px 15px;
+            }
+
+            .logo {
+                margin-bottom: 18px;
+            }
+
+            .sidebar a {
+                display: inline-block;
+                margin: 3px;
+                padding: 10px 12px;
             }
 
             .main {
-                margin-left: 180px;
-                padding: 15px;
+                margin-left: 0;
+                padding: 20px 15px;
             }
 
-            .page-header {
-                align-items: flex-start;
-                flex-direction: column;
+            .page-header h1 {
+                font-size: 24px;
+            }
+
+            .search-panel,
+            .table-container {
+                padding: 16px;
+            }
+
+            .search-button,
+            .clear-button {
+                flex: 1 1 auto;
             }
         }
     </style>
@@ -239,79 +334,99 @@
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>📚 Library</h2>
+    <aside class="sidebar">
 
-        <a href="<%= request.getContextPath() %>/dashboard">
+        <div class="logo">Auto<span>LibSys</span></div>
+
+        <a href="<%= contextPath %>/dashboard">
             Dashboard
         </a>
 
-        <a href="<%= request.getContextPath() %>/books"
-           class="active">
+        <a href="<%= contextPath %>/books" class="active">
             Book Stock
         </a>
 
-        <a href="<%= request.getContextPath() %>/addBook.jsp">
+        <a href="<%= contextPath %>/addBook.jsp">
             Add Book
         </a>
 
-        <a href="<%= request.getContextPath() %>/categories">
+        <a href="<%= contextPath %>/categories">
             Categories
         </a>
 
-        <a href="<%= request.getContextPath() %>/circulation">
+        <a href="<%= contextPath %>/circulation">
             Circulation
         </a>
-    </div>
+
+    </aside>
 
     <!-- Main Content -->
-    <div class="main">
+    <main class="main">
 
-        <div class="page-header">
-            <h1>Book Stock Management</h1>
+        <header class="page-header">
+
+            <div>
+                <h1>Book Stock Management</h1>
+                <p class="subtitle">
+                    View, search, and manage your library inventory.
+                </p>
+            </div>
 
             <a class="add-button"
-               href="<%= request.getContextPath() %>/addBook.jsp">
+               href="<%= contextPath %>/addBook.jsp">
                 + Add New Book
             </a>
-        </div>
 
+        </header>
+
+        <!-- Success Message -->
         <% if ("success".equals(updated)) { %>
-            <div class="success-message">
+
+            <div class="success-message" role="status">
                 Book details updated successfully!
             </div>
+
         <% } %>
 
+        <!-- Error Message -->
         <% if (searchError != null) { %>
-            <div class="error-message">
+
+            <div class="error-message" role="alert">
                 <%= searchError %>
             </div>
+
         <% } %>
 
         <!-- Search Section -->
-        <div class="search-panel">
+        <section class="search-panel">
 
-            <h3>Search Books</h3>
+            <h2 class="section-heading">Search Books</h2>
 
             <form class="search-form"
-                  action="<%= request.getContextPath() %>/books"
+                  action="<%= contextPath %>/books"
                   method="get">
 
-                <input type="text"
-                       name="search"
-                       placeholder="Enter book title or author..."
-                       value="<%= search %>">
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Enter book title or author..."
+                    value="<%= search %>"
+                    aria-label="Search by book title or author">
 
-                <select name="category">
+                <select name="category" aria-label="Filter by category">
+
                     <option value="">All Categories</option>
 
                     <%
-                        try (Connection con = DBConnection.getConnection();
-                             PreparedStatement ps = con.prepareStatement(
-                                 "SELECT id, category_name FROM categories ORDER BY category_name");
-                             ResultSet rs = ps.executeQuery()) {
-
+                        try (
+                            Connection con = DBConnection.getConnection();
+                            PreparedStatement ps = con.prepareStatement(
+                                "SELECT id, category_name FROM categories ORDER BY category_name"
+                            );
+                            ResultSet rs = ps.executeQuery()
+                        ) {
                             while (rs.next()) {
+
                                 String categoryId =
                                     String.valueOf(rs.getInt("id"));
 
@@ -330,6 +445,10 @@
                     <%
                             }
                         } catch (Exception e) {
+
+                            application.log(
+                                "Unable to load book categories", e
+                            );
                     %>
 
                         <option value="" disabled>
@@ -339,6 +458,7 @@
                     <%
                         }
                     %>
+
                 </select>
 
                 <button type="submit" class="search-button">
@@ -346,19 +466,21 @@
                 </button>
 
                 <a class="clear-button"
-                   href="<%= request.getContextPath() %>/books">
+                   href="<%= contextPath %>/books">
                     Clear
                 </a>
 
             </form>
-        </div>
+
+        </section>
 
         <!-- Book Inventory -->
-        <div class="table-container">
+        <section class="table-container">
 
-            <h3>Book Inventory</h3>
+            <h2 class="section-heading">Book Inventory</h2>
 
             <table>
+
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -381,6 +503,7 @@
                     <% for (Map<String, Object> book : books) { %>
 
                         <tr>
+
                             <td><%= book.get("id") %></td>
 
                             <td><%= book.get("title") %></td>
@@ -408,28 +531,42 @@
                             <td><%= book.get("totalCopies") %></td>
 
                             <td>
-                                <% int availableCopies =
-                                    ((Number) book.get("availableCopies")).intValue(); %>
+
+                                <%
+                                    Object availableValue =
+                                        book.get("availableCopies");
+
+                                    int availableCopies =
+                                        availableValue instanceof Number
+                                        ? ((Number) availableValue).intValue()
+                                        : 0;
+                                %>
 
                                 <% if (availableCopies > 0) { %>
+
                                     <span class="available">
                                         <%= availableCopies %>
                                     </span>
+
                                 <% } else { %>
+
                                     <span class="unavailable">
                                         0 (Out of Stock)
                                     </span>
+
                                 <% } %>
+
                             </td>
 
                             <td><%= book.get("bookType") %></td>
 
                             <td>
                                 <a class="edit-button"
-                                   href="<%= request.getContextPath() %>/editBook?id=<%= book.get("id") %>">
+                                   href="<%= contextPath %>/editBook?id=<%= book.get("id") %>">
                                     Edit
                                 </a>
                             </td>
+
                         </tr>
 
                     <% } %>
@@ -445,11 +582,12 @@
                 <% } %>
 
                 </tbody>
+
             </table>
 
-        </div>
+        </section>
 
-    </div>
+    </main>
 
 </body>
 </html>
