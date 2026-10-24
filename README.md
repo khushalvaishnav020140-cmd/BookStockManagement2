@@ -710,6 +710,10 @@ Key areas of evaluation include:
 [Book Stock Management System – GitHub](https://github.com/khushalvaishnav020140-cmd/BookStockManagement2)
 * Automated unit and integration tests.
 
-| Deliverable | Resource | Status |
-|---|---|---|
-| Live Demo | [Open Book Stock Management System](https://bookstockmanagement2-production.up.railway.app/) | Deployed |
+## 🚀 Live Demo
+
+The **Book Stock Management System (AutoLibSys)** is deployed and accessible online.
+
+🔗 **Live Application:** [Launch Book Stock Management System](https://bookstockmanagement2-production.up.railway.app/)
+
+---
