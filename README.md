@@ -643,19 +643,7 @@ Verify that invalid inputs and database errors are handled appropriately.
 
 Verify that the JSP pages, Servlets, database connection, and MySQL database work together.
 
-## 2. Test Summary
 
-Complete this table after running the tests.
-
-| Feature              | Test Status | Remarks      |
-| -------------------- | ----------- | ------------ |
-| Database connection  | [Pass/Fail] | [Add result] |
-| Book management      | [Pass/Fail] | [Add result] |
-| Category management  | [Pass/Fail] | [Add result] |
-| Search functionality | [Pass/Fail] | [Add result] |
-| Stock management     | [Pass/Fail] | [Add result] |
-| Issue and return     | [Pass/Fail] | [Add result] |
-| Dashboard            | [Pass/Fail] | [Add result] |
 
 ## 3. Evaluation Criteria
 
@@ -683,10 +671,7 @@ Possible future improvements include:
 
 ## Week 10: Final System Evaluation, Project Deliverables & Submission
 
-### Project Deliverables & Artifacts
 
-| **Deliverable** | **Resource** | **Status** |
-|---|---|---|
 
 ### Project Deliverables & Artifacts
 
