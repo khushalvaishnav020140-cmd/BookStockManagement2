@@ -6,13 +6,16 @@
         (List<Map<String, Object>>) request.getAttribute("circulationList");
 
     String message = request.getParameter("message");
+    String contextPath = request.getContextPath();
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book Circulation - BookStockManagement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Circulation - AutoLibSys</title>
 
     <style>
         * {
@@ -21,82 +24,123 @@
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #526581;
         }
 
+        /* Sidebar - Dashboard theme */
         .sidebar {
-            width: 230px;
+            width: 240px;
             height: 100vh;
-            background: #243447;
+            background: #183d70;
             color: white;
             position: fixed;
             top: 0;
             left: 0;
-            padding: 25px 15px;
+            padding: 25px 18px;
+            overflow-y: auto;
         }
 
         .sidebar h2 {
-            text-align: center;
-            margin-bottom: 30px;
+            margin: 0 0 35px;
+            padding-left: 5px;
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .sidebar h2 span {
+            color: #65c5ff;
         }
 
         .sidebar a {
             display: block;
-            padding: 13px 15px;
+            padding: 14px 15px;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 7px;
             margin-bottom: 8px;
+            font-size: 15px;
+            transition: background 0.2s;
         }
 
         .sidebar a:hover,
         .sidebar a.active {
-            background: #3498db;
+            background: #2b568e;
         }
 
+        /* Main content */
         .main {
-            margin-left: 230px;
+            margin-left: 240px;
             padding: 30px;
+            min-height: 100vh;
         }
 
         .topbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            gap: 15px;
+            margin-bottom: 28px;
         }
 
         .topbar h1 {
+            margin: 0 0 8px;
+            color: #18385e;
+            font-size: 30px;
+        }
+
+        .subtitle {
             margin: 0;
-            color: #243447;
+            color: #7b8da8;
+            font-size: 14px;
         }
 
+        /* Buttons */
         .add-button {
-            background: #3498db;
+            display: inline-block;
+            background: #2874bd;
             color: white;
-            padding: 11px 16px;
-            border-radius: 5px;
+            padding: 12px 17px;
+            border-radius: 7px;
             text-decoration: none;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: background 0.2s;
         }
 
+        .add-button:hover {
+            background: #1e609f;
+        }
+
+        /* Success messages */
         .message {
-            padding: 13px;
-            border-radius: 5px;
+            padding: 14px 16px;
+            border-radius: 8px;
             margin-bottom: 20px;
+            font-size: 14px;
         }
 
         .success {
-            background: #d4edda;
-            color: #155724;
+            background: #dff5e8;
+            color: #187447;
+            border: 1px solid #c4ead4;
         }
 
+        /* White table card */
         .table-container {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            border-radius: 13px;
+            box-shadow: 0 4px 14px rgba(25, 55, 90, 0.06);
             overflow-x: auto;
+        }
+
+        .table-container h2 {
+            margin: 0 0 22px;
+            color: #18385e;
+            font-size: 21px;
         }
 
         table {
@@ -105,72 +149,114 @@
             min-width: 950px;
         }
 
-        th, td {
-            padding: 13px 10px;
+        th,
+        td {
+            padding: 15px 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #e8edf4;
+            font-size: 14px;
         }
 
         th {
-            background: #243447;
-            color: white;
+            background: #edf3fb;
+            color: #344d6d;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
-        tr:hover {
-            background: #f7f9fb;
+        tbody tr:hover {
+            background: #f8faff;
         }
 
+        /* Status badges */
         .status {
             display: inline-block;
-            padding: 6px 10px;
-            border-radius: 15px;
+            padding: 6px 11px;
+            border-radius: 18px;
             font-size: 12px;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .issued {
-            background: #fff3cd;
-            color: #856404;
+            background: #fff0d9;
+            color: #a96300;
         }
 
         .returned {
-            background: #d4edda;
-            color: #155724;
+            background: #e0f6eb;
+            color: #168054;
         }
 
+        /* Return button */
         .return-button {
-            background: #28a745;
+            background: #2874bd;
             color: white;
             border: none;
-            padding: 9px 12px;
-            border-radius: 4px;
+            padding: 9px 13px;
+            border-radius: 6px;
             cursor: pointer;
+            font-size: 13px;
+            white-space: nowrap;
         }
 
         .return-button:hover {
-            background: #218838;
+            background: #1e609f;
         }
 
         .empty-message {
             text-align: center;
-            padding: 25px;
-            color: #666;
+            padding: 28px;
+            color: #7b8da8;
         }
 
-        @media (max-width: 800px) {
+        /* Responsive layout */
+        @media (max-width: 900px) {
             .sidebar {
-                width: 180px;
+                width: 200px;
+                padding: 20px 12px;
             }
 
             .main {
-                margin-left: 180px;
+                margin-left: 200px;
+                padding: 20px;
+            }
+
+            .topbar h1 {
+                font-size: 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
                 padding: 15px;
+            }
+
+            .sidebar h2 {
+                margin-bottom: 15px;
+            }
+
+            .sidebar a {
+                display: inline-block;
+                margin: 3px;
+                padding: 10px;
+            }
+
+            .main {
+                margin-left: 0;
+                padding: 18px;
             }
 
             .topbar {
                 align-items: flex-start;
-                gap: 15px;
                 flex-direction: column;
+            }
+
+            .table-container {
+                padding: 15px;
             }
         }
     </style>
@@ -180,38 +266,44 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <h2>📚 Library</h2>
 
-        <a href="<%= request.getContextPath() %>/dashboard">
+        <h2>AutoLib<span>Sys</span></h2>
+
+        <a href="<%= contextPath %>/dashboard">
             Dashboard
         </a>
 
-        <a href="<%= request.getContextPath() %>/books">
+        <a href="<%= contextPath %>/books">
             Book Stock
         </a>
 
-        <a href="<%= request.getContextPath() %>/addBook.jsp">
-            Add Book
+        <a href="<%= contextPath %>/addBook.jsp">
+            Add New Book
         </a>
 
-        <a href="<%= request.getContextPath() %>/categories.jsp">
+        <a href="<%= contextPath %>/categories.jsp">
             Categories
         </a>
 
-        <a href="<%= request.getContextPath() %>/circulation"
-           class="active">
+        <a href="<%= contextPath %>/circulation" class="active">
             Circulation
         </a>
+
     </div>
 
     <!-- Main Content -->
-    <div class="main">
+    <main class="main">
 
         <div class="topbar">
-            <h1>Book Circulation</h1>
+            <div>
+                <h1>Book Circulation</h1>
+                <p class="subtitle">
+                    Manage issued and returned library books.
+                </p>
+            </div>
 
             <a class="add-button"
-               href="<%= request.getContextPath() %>/issueBook.jsp">
+               href="<%= contextPath %>/issueBook.jsp">
                 + Issue New Book
             </a>
         </div>
@@ -229,6 +321,8 @@
         <% } %>
 
         <div class="table-container">
+
+            <h2>Circulation Records</h2>
 
             <table>
                 <thead>
@@ -255,15 +349,10 @@
 
                     <tr>
                         <td><%= item.get("id") %></td>
-
                         <td><%= item.get("title") %></td>
-
                         <td><%= item.get("studentName") %></td>
-
                         <td><%= item.get("studentId") %></td>
-
                         <td><%= item.get("issueDate") %></td>
-
                         <td><%= item.get("dueDate") %></td>
 
                         <td>
@@ -284,7 +373,7 @@
                             <% if ("Issued".equalsIgnoreCase(status)) { %>
 
                                 <form
-                                    action="<%= request.getContextPath() %>/returnBook"
+                                    action="<%= contextPath %>/returnBook"
                                     method="post"
                                     onsubmit="return confirm('Are you sure you want to return this book?');">
 
@@ -295,12 +384,11 @@
                                     <button type="submit" class="return-button">
                                         Return Book
                                     </button>
+
                                 </form>
 
                             <% } else { %>
-
                                 Already Returned
-
                             <% } %>
                         </td>
                     </tr>
@@ -322,7 +410,7 @@
 
         </div>
 
-    </div>
+    </main>
 
 </body>
 </html>
