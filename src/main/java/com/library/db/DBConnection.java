@@ -6,31 +6,44 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private static final String URL =
-            "jdbc:mysql://localhost:3306/book_stock_db";
+    public static Connection getConnection() throws SQLException {
 
-    private static final String USER =
-            System.getenv().getOrDefault("DB_USER", "root");
+        String host = System.getenv("MYSQLHOST");
+        String port = System.getenv("MYSQLPORT");
+        String database = System.getenv("MYSQLDATABASE");
+        String user = System.getenv("MYSQLUSER");
+        String password = System.getenv("MYSQLPASSWORD");
 
-    private static final String PASSWORD =
-            System.getenv("DB_PASSWORD");
+        // Local computer par testing ke liye
+        if (host == null || host.isBlank()) {
+            host = "localhost";
+            port = "3306";
+            database = "book_stock_db";
+            user = "root";
+            password = "juned";
+        }
 
-    static {
+        if (port == null || port.isBlank()) {
+            port = "3306";
+        }
+
+        if (database == null || database.isBlank()
+                || user == null || user.isBlank()
+                || password == null || password.isBlank()) {
+            throw new SQLException(
+                "Database environment variables missing hain."
+            );
+        }
+
+        String url = "jdbc:mysql://" + host + ":" + port + "/" + database
+                + "?serverTimezone=UTC";
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(
-                    "MySQL JDBC Driver not found!", e);
-        }
-    }
-
-    public static Connection getConnection() throws SQLException {
-
-        if (PASSWORD == null || PASSWORD.isEmpty()) {
-            throw new SQLException(
-                    "DB_PASSWORD environment variable is not set.");
+            throw new SQLException("MySQL JDBC Driver nahi mila.", e);
         }
 
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        return DriverManager.getConnection(url, user, password);
     }
 }
