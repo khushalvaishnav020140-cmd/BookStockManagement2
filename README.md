@@ -716,4 +716,10 @@ The **Book Stock Management System (AutoLibSys)** is deployed and accessible onl
 
 🔗 **Live Application:** [Launch Book Stock Management System](https://bookstockmanagement2-production.up.railway.app/)
 
+## 🎥 Project Demo Video
+
+Watch the demonstration of the **Book Stock Management System (AutoLibSys)**.
+
+▶️ **[Watch Project Demo on YouTube](https://www.youtube.com/watch?v=BJigd_Rl1NU)**
+
 ---
